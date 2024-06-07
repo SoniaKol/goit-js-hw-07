@@ -1,13 +1,11 @@
-// const textInput = document.querySelector(`#name-input`);
-// const textOutput = document.querySelector(`#name-output`);
+const textInput = document.querySelector(`#name-input`);
+const textOutput = document.querySelector(`#name-output`);
 
-// console.log(textOutput);
+textInput.addEventListener(`input`, inputHandler);
 
-// textInput.addEventListener(`input`, (event) => {
-//   //   if (textInput.textContent === ``) {
-//   //     textOutput.textContent = `Anonimous`;
-//   //   }
-//   textOutput.textContent = event.currentTarget.value;
-// });
-
-// function inputHandler() {}
+function inputHandler(event) {
+  textOutput.textContent = event.currentTarget.value.trim();
+  if (textInput.value.trim() === ``) {
+    textOutput.textContent = `Anonymous`;
+  }
+}
