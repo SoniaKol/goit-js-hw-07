@@ -22,19 +22,12 @@ function createBoxes(amount) {
   const boxArray = [];
 
   if (amount > 0 && amount <= 100) {
-    for (let i = 1; i <= amount; i++) {
-      let newBox = `<div class="js-box box-${i}"></div>`;
+    for (let i = 1, size = 30; i <= amount; i++, size += 10) {
+      let newBox = `<div class="js-box" style="background-color: ${getRandomHexColor()}; width: ${size}px; height: ${size}px;"></div>`;
       boxArray.push(newBox);
     }
 
     boxes.insertAdjacentHTML("beforeend", boxArray.join(""));
-
-    for (let k = 1, size = 30; k <= amount; k++, size += 10) {
-      let currentBox = document.querySelector(`.box-${k}`);
-      currentBox.style.backgroundColor = getRandomHexColor();
-      currentBox.style.width = `${size}px`;
-      currentBox.style.height = `${size}px`;
-    }
   }
 }
 
